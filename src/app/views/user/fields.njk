@@ -1,0 +1,43 @@
+{# NOME #}
+<div class="item">
+    <div>Nome Completo</div>
+    <div class="input">
+        <input type="text" name="name" placeholder="Digite seu nome completo" value="{{ user.name }}" required></div>
+    </div>
+    {# Email #}
+    <div class="item">
+        <div>Email</div>
+        <div class="input">
+            <input type="email" name="email" placeholder="Digite email" value="{{ user.email }}" onblur="Validate.apply(this, 'isEmail')"></div>
+        </div>
+        {# Senha #}
+        <div class="item">
+            <div>Senha</div>
+            <div class="input">
+                <input type="password" name="password" {% if not user.id %} placeholder="Escolha uma senha segura" {% else %} placeholder="Digite sua senha para atualizar seu cadastro" {% endif %}></div>
+            </div>
+            {% if not user.id %}
+                <div class="item">
+                    <div>Repetir senha</div>
+                    <div class="input">
+                        <input type="password" name="passwordRepeat" placeholder="repita a senha escolhida"></div>
+                    </div>
+                {% endif %}
+                {# cpf ou cnpj #}
+                <div class="item">
+                    <div>Cpf ou cnpj</div>
+                    <div class="input">
+                        <input type="text" name="cpf_cnpj" placeholder="Digite seu documento" value="{{ user.cpf_cnpj }}" onkeydown="Mask.apply(this, 'cpfCnpj')" onblur="Validate.apply(this, 'isCpfCnpj')"></div>
+                    </div>
+                    {# cep #}
+                    <div class="item">
+                        <div>CEP</div>
+                        <div class="input">
+                            <input type="text" name="cep" placeholder="99999-999" value="{{ user.cep }}" onkeydown="Mask.apply(this, 'cep')" onblur="Validate.apply(this, 'isCep')"></div>
+                        </div>
+                        {# endereço #}
+                        <div class="item">
+                            <div>Endereço Completo</div>
+                            <div class="input">
+                                <input type="text" name="address" placeholder="Digite seu endereço completo" value="{{ user.address }}"></div>
+                            </div>
