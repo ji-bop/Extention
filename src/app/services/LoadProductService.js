@@ -7,7 +7,7 @@ async function getImages(productId) {
 
     files = files.map(file => ({
         ...file,
-        src: `${file.path.replace('public', '')}`
+        src: `${file.path.replace("public", "")}`
     }))
 
     return files
@@ -31,7 +31,7 @@ async function format(product) {
 }
 
 const LoadService = {
-    async load(service, filter) {
+    load(service, filter) {
         this.filter = filter
         return this[service](filter)
     },
@@ -52,7 +52,16 @@ const LoadService = {
             console.error(error)
         }
     },
-    format
+    async productWithDeleted() {
+        try {
+            let product = await Product.findOneWithDeleted(this.filter)
+            return format(product)
+
+        } catch (error) {
+            console.error(error)
+        }
+    },
+    format,
 }
 
 module.exports = LoadService

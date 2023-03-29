@@ -1,8 +1,10 @@
-/* user-register */
-.user-register,
-.user-dashboard {
+/* user register */
+.users-register,
+.users-dashboard 
+ {
     max-width: 500px;
 }
+
 
 .users-ads {
     max-width: 700px;
@@ -10,8 +12,8 @@
 
 .users-ads .items {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 32px;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap:32px;
 
     padding: 16px 0;
 }
@@ -25,7 +27,7 @@
     color: #444;
 }
 
-.users-ads .item .image {
+.users-ads .item .image{
     width: 100px;
     height: 100px;
 
@@ -67,17 +69,15 @@
 
 .users-ads .info .actions {
     display: flex;
-
     margin-top: auto;
 }
 
-.users-ads .info .actions .a {
+.users-ads .info .actions a {
     margin-right: 16px;
 
-    color: #fd951f;
+    color: var(--primary-color);
 }
-
 .users-ads .info .actions a:hover {
     font-weight: bold;
-    text-decoration: underline;
+    text-decoration: underline
 }
